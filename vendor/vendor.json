@@ -9,18 +9,6 @@
 			"revisionTime": "2017-06-26T11:06:00Z"
 		},
 		{
-			"checksumSHA1": "Ut2wn6gufxByD9a4Hgo70os4/iU=",
-			"path": "github.com/athom/nightwatcher",
-			"revision": "bcb556d9aead446964c060e3f50ea5705c4d69de",
-			"revisionTime": "2018-05-14T00:06:34Z"
-		},
-		{
-			"checksumSHA1": "I/yESTxHIfss2X7atb6sPCylchA=",
-			"path": "github.com/athom/nightwatcher/cmd/nightwatcher",
-			"revision": "bcb556d9aead446964c060e3f50ea5705c4d69de",
-			"revisionTime": "2018-05-14T00:06:34Z"
-		},
-		{
 			"checksumSHA1": "6ziPf5RgA2bQpk4yuG6uA/kZxgQ=",
 			"path": "github.com/fatih/color",
 			"revision": "8640971291e54b520f781270275b7ed8762ac909",
