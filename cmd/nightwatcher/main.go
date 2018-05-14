@@ -143,6 +143,11 @@ func main() {
 	}
 
 	n := len(os.Args)
+	if n <= 1 {
+		usage()
+		return
+	}
+	
 	url := os.Args[n-1]
 
 	watcher := nightwatcher.Watcher{
