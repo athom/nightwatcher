@@ -1,0 +1,12 @@
+language: go
+
+go:
+  - 1.10.2
+
+install:
+  - go get github.com/kardianos/govendor
+  - govendor sync
+
+script:
+  - go build .
+  - go test -i; go test .
