@@ -1,0 +1,115 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "Pc2ORQp+VY3Un/dkh4QwLC7R6lE=",
+			"path": "github.com/BurntSushi/toml",
+			"revision": "a368813c5e648fee92e5f6c30e3944ff9d5e8895",
+			"revisionTime": "2017-06-26T11:06:00Z"
+		},
+		{
+			"checksumSHA1": "Ut2wn6gufxByD9a4Hgo70os4/iU=",
+			"path": "github.com/athom/nightwatcher",
+			"revision": "bcb556d9aead446964c060e3f50ea5705c4d69de",
+			"revisionTime": "2018-05-14T00:06:34Z"
+		},
+		{
+			"checksumSHA1": "I/yESTxHIfss2X7atb6sPCylchA=",
+			"path": "github.com/athom/nightwatcher/cmd/nightwatcher",
+			"revision": "bcb556d9aead446964c060e3f50ea5705c4d69de",
+			"revisionTime": "2018-05-14T00:06:34Z"
+		},
+		{
+			"checksumSHA1": "6ziPf5RgA2bQpk4yuG6uA/kZxgQ=",
+			"path": "github.com/fatih/color",
+			"revision": "8640971291e54b520f781270275b7ed8762ac909",
+			"revisionTime": "2015-10-26T15:24:12Z"
+		},
+		{
+			"checksumSHA1": "4TQcd1G7pH8xwHg50zebCn3lRPw=",
+			"path": "github.com/jinzhu/configor",
+			"revision": "ec34f328956f53dfbd06e9f5306e37e6943443c3",
+			"revisionTime": "2018-03-08T03:45:38Z"
+		},
+		{
+			"checksumSHA1": "HIMDeysKGqDKh9a3N5lFLZRNHaU=",
+			"path": "github.com/mailru/easyjson",
+			"revision": "8b799c424f57fa123fc63a99d6383bc6e4c02578",
+			"revisionTime": "2018-03-23T15:44:45Z"
+		},
+		{
+			"checksumSHA1": "T8soMJArSZrYnhmdpAnq1bVxQ6Q=",
+			"path": "github.com/mailru/easyjson/buffer",
+			"revision": "8b799c424f57fa123fc63a99d6383bc6e4c02578",
+			"revisionTime": "2018-03-23T15:44:45Z"
+		},
+		{
+			"checksumSHA1": "r2z0mW+SLfGn93Psm3tvEs3WQDM=",
+			"path": "github.com/mailru/easyjson/jlexer",
+			"revision": "8b799c424f57fa123fc63a99d6383bc6e4c02578",
+			"revisionTime": "2018-03-23T15:44:45Z"
+		},
+		{
+			"checksumSHA1": "4BAeeJ7JywEQyR6GqRrxfSfN2/Q=",
+			"path": "github.com/mailru/easyjson/jwriter",
+			"revision": "8b799c424f57fa123fc63a99d6383bc6e4c02578",
+			"revisionTime": "2018-03-23T15:44:45Z"
+		},
+		{
+			"checksumSHA1": "U6lX43KDDlNOn+Z0Yyww+ZzHfFo=",
+			"path": "github.com/mattn/go-isatty",
+			"revision": "fc9e8d8ef48496124e79ae0df75490096eccf6fe",
+			"revisionTime": "2017-03-22T23:44:13Z"
+		},
+		{
+			"checksumSHA1": "x8MDd3v/155CXk8oPfo2d5xVUHk=",
+			"path": "github.com/olivere/elastic",
+			"revision": "0aa52be510eeefcbbbf4ee4cf907192699f473cf",
+			"revisionTime": "2018-05-10T16:29:42Z"
+		},
+		{
+			"checksumSHA1": "r7eEvesetOsRfZLJ+Z4kvTv3xGI=",
+			"path": "github.com/olivere/elastic/config",
+			"revision": "0aa52be510eeefcbbbf4ee4cf907192699f473cf",
+			"revisionTime": "2018-05-10T16:29:42Z"
+		},
+		{
+			"checksumSHA1": "AmcqvKDAUGvVsrf8NDCQ/B8cMj4=",
+			"path": "github.com/olivere/elastic/uritemplates",
+			"revision": "0aa52be510eeefcbbbf4ee4cf907192699f473cf",
+			"revisionTime": "2018-05-10T16:29:42Z"
+		},
+		{
+			"checksumSHA1": "rJab1YdNhQooDiBWNnt7TLWPyBU=",
+			"path": "github.com/pkg/errors",
+			"revision": "c605e284fe17294bda444b34710735b29d1a9d90",
+			"revisionTime": "2017-05-05T04:36:39Z"
+		},
+		{
+			"checksumSHA1": "v5CCEZdC63TIkIL8TUeURBcZzNc=",
+			"path": "github.com/shiena/ansicolor",
+			"revision": "a422bbe96644373c5753384a59d678f7d261ff10",
+			"revisionTime": "2015-11-19T15:19:21Z"
+		},
+		{
+			"checksumSHA1": "fit1CKOwCh9/ECxZWSq7xE2dCGo=",
+			"path": "github.com/tcnksm/go-httpstat",
+			"revision": "6962beb23919c3de82c788a87b36f4f901ab514d",
+			"revisionTime": "2017-09-26T13:56:05Z"
+		},
+		{
+			"checksumSHA1": "8fD/im5Kwvy3JgmxulDTambmE8w=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "a646d33e2ee3172a661fc09bca23bb4889a41bc8",
+			"revisionTime": "2016-07-15T05:43:45Z"
+		},
+		{
+			"checksumSHA1": "ZSWoOPUNRr5+3dhkLK3C4cZAQPk=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "5420a8b6744d3b0345ab293f6fcba19c978f1183",
+			"revisionTime": "2018-03-28T19:50:20Z"
+		}
+	],
+	"rootPath": "github.com/athom/nightwatcher"
+}

@@ -1,0 +1,27 @@
+watch_items:
+- url: https://github.com
+  interval: 3s
+  duration: 5m
+
+- url: http://github.com
+  interval: 3s
+  duration: 5m
+
+- url: https://cloud.tencent.com
+  interval: 3s
+  duration: 5m
+
+- url: https://about.gitlab.com
+  interval: 3s
+  duration: 5m
+
+reporters:
+  stdout:
+    enabled: yes
+  file:
+    enabled: yes
+    path: "./nightwatcher_result.txt"
+  elasticsearch:
+    enabled: yes
+    url: "https://f6swlx6x1k:v8b332xz70@nightwatcher-storage-5963183380.us-east-1.bonsaisearch.net"
+    index: "nightwatcher"
