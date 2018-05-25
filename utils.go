@@ -2,7 +2,10 @@ package nightwatcher
 
 import (
 	"fmt"
+	"io"
+	"log"
 	"net"
+	"os"
 	"strconv"
 	"strings"
 	"time"
@@ -72,4 +75,16 @@ func getLocalAddress() (r *net.UDPAddr) {
 	defer conn.Close()
 	r = conn.LocalAddr().(*net.UDPAddr)
 	return
+}
+
+func createBody(body string) io.Reader {
+	if strings.HasPrefix(body, "@") {
+		filename := body[1:]
+		f, err := os.Open(filename)
+		if err != nil {
+			log.Fatalf("failed to open data file %s: %v", filename, err)
+		}
+		return f
+	}
+	return strings.NewReader(body)
 }

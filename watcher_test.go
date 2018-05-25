@@ -23,7 +23,7 @@ func TestGlance(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		aim, err := glance(test.in)
+		aim, err := glance("GET", test.in, "")
 		if test.wantStatusCode == -1 {
 			if err == nil {
 				t.Fatalf("visiting %v should raise error but no", test.in)

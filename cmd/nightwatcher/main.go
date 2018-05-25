@@ -3,20 +3,22 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 	"os"
 	"runtime"
 	"time"
 
-	"github.com/jinzhu/configor"
 	"github.com/athom/nightwatcher"
+	"github.com/jinzhu/configor"
 )
-
 
 var (
 	showVersion        bool
 	silence            bool
 	outputFile         string
 	configFile         string
+	httpMethod         string
+	httpPostBody       string
 	elasticsearchURL   string
 	elasticsearchIndex string
 
@@ -30,6 +32,8 @@ func init() {
 	flag.IntVar(&interval, "i", 3, "interval seconds for watch period")
 	flag.IntVar(&duration, "d", 4, "duration of watch time")
 	flag.BoolVar(&silence, "s", false, "make stdout silence")
+	flag.StringVar(&httpMethod, "X", "GET", "use config file")
+	flag.StringVar(&httpPostBody, "D", "", "the body of a POST or PUT request; from file use @filename")
 	flag.StringVar(&configFile, "f", "", "use config file")
 	flag.StringVar(&outputFile, "o", "", "use output file to report watch result")
 	flag.StringVar(&elasticsearchURL, "e", "", "use elasticsearch to collect watch result")
@@ -47,6 +51,8 @@ func usage() {
 func runWithConfig(configFile string) (err error) {
 	type WatchItem struct {
 		TargetURL string        `yaml:"url"`
+		Method    string        `yaml:"method"`
+		HttpBody  string        `yaml:"http_body"`
 		Interval  time.Duration `yaml:"interval"`
 		Duration  time.Duration `yaml:"duration"`
 	}
@@ -74,7 +80,7 @@ func runWithConfig(configFile string) (err error) {
 
 	type NightWatcherConfig struct {
 		WatchItems []WatchItem `yaml:"watch_items"`
-		Reporters Reporters   `yaml:"reporters"`
+		Reporters  Reporters   `yaml:"reporters"`
 	}
 
 	var conf NightWatcherConfig
@@ -87,11 +93,13 @@ func runWithConfig(configFile string) (err error) {
 	for _, item := range conf.WatchItems {
 		watcherItems = append(watcherItems, nightwatcher.WatchItem{
 			TargetURL: item.TargetURL,
-			Interval: item.Interval,
-			TimeOut: item.Duration,
+			Method:    item.Method,
+			HttpBody:  item.HttpBody,
+			Interval:  item.Interval,
+			TimeOut:   item.Duration,
 		})
 	}
-	watcher := nightwatcher.Watcher{WatchItems:watcherItems}
+	watcher := nightwatcher.Watcher{WatchItems: watcherItems}
 
 	if !conf.Reporters.StdoutReporter.Enabled {
 		nightwatcher.ClearReporters()
@@ -147,12 +155,18 @@ func main() {
 		usage()
 		return
 	}
-	
+
 	url := os.Args[n-1]
+
+	if (httpMethod == "POST" || httpMethod == "PUT") && httpPostBody == "" {
+		log.Fatal("must supply post body using -d when POST or PUT is used")
+	}
 
 	watcher := nightwatcher.Watcher{
 		WatchItems: []nightwatcher.WatchItem{
 			{
+				Method:    httpMethod,
+				HttpBody:  httpPostBody,
 				TargetURL: url,
 				TimeOut:   time.Duration(duration) * time.Second,
 				Interval:  time.Duration(interval) * time.Second,

@@ -11,11 +11,15 @@ import (
 
 	"sync"
 
+	"strings"
+
 	httpstat "github.com/tcnksm/go-httpstat"
 )
 
 type WatchItem struct {
 	TargetURL string
+	Method    string
+	HttpBody  string
 	Interval  time.Duration
 	TimeOut   time.Duration
 }
@@ -37,7 +41,14 @@ func (this *Watcher) Watch() {
 					this.wg.Done()
 					return
 				case <-heartbeat:
-					err := Look(wi.TargetURL)
+					method := wi.Method
+					if wi.HttpBody != "" {
+						method = "POST"
+					}
+					if method == "" {
+						method = "GET"
+					}
+					err := Look(method, wi.TargetURL, wi.HttpBody)
 					if err != nil {
 						log.Printf("Look %v failed  due to err: %v", wi.TargetURL, err)
 					}
@@ -48,9 +59,9 @@ func (this *Watcher) Watch() {
 	this.wg.Wait()
 }
 
-func Look(url string) (err error) {
+func Look(method string, url string, body string) (err error) {
 	var aim *Aim
-	aim, err = glance(url)
+	aim, err = glance(method, url, body)
 	if err != nil {
 		return
 	}
@@ -63,9 +74,12 @@ func Look(url string) (err error) {
 	return
 }
 
-func glance(url string) (r *Aim, err error) {
+func glance(method string, url string, body string) (r *Aim, err error) {
 	var result httpstat.Result
-	req, err := http.NewRequest("GET", url, nil)
+	method = strings.ToUpper(method)
+
+	bodyReader := createBody(body)
+	req, err := http.NewRequest(method, url, bodyReader)
 	if err != nil {
 		return
 	}
@@ -92,7 +106,7 @@ func glance(url string) (r *Aim, err error) {
 			return http.ErrUseLastResponse
 		},
 	}
-	//client := http.DefaultClient
+
 	res, err := client.Do(req)
 	if err != nil {
 		return
