@@ -39,7 +39,7 @@ nightwatcher https://about.gitlab.com
 This example will ping github.com every 2 seconds for 1 minute.  
 
 ```sh
-nightwatcher -i 2 -d 60 https://about.gitlab.com
+nightwatcher -i 2 -t 60 https://about.gitlab.com
 ```
 
 - **Record the result in local file**
@@ -47,7 +47,7 @@ nightwatcher -i 2 -d 60 https://about.gitlab.com
   By providing the output filename, the watch result can be saved for persistence with unified format for further analysis.  
   
 ```sh
-nightwatcher -i 2 -d 60 -o watch_result.txt https://about.gitlab.com
+nightwatcher -i 2 -t 60 -o watch_result.txt https://about.gitlab.com
 ```
 
 - **Track the records to Elasticsearch**
@@ -56,7 +56,7 @@ nightwatcher -i 2 -d 60 -o watch_result.txt https://about.gitlab.com
   Here is the usage of how to spy/monitor website and them store the result to Elasticsearch.  
   
 ```sh
-nightwatcher -i 2 -d 60 -e your_fancy_es_url https://about.gitlab.com
+nightwatcher -i 2 -t 60 -e your_fancy_es_url https://about.gitlab.com
 ```
 
 - **Support Multiple URLs & configure file**

@@ -30,10 +30,10 @@ var (
 
 func init() {
 	flag.IntVar(&interval, "i", 3, "interval seconds for watch period")
-	flag.IntVar(&duration, "d", 4, "duration of watch time")
+	flag.IntVar(&duration, "t", 4, "duration of watch time")
 	flag.BoolVar(&silence, "s", false, "make stdout silence")
 	flag.StringVar(&httpMethod, "X", "GET", "use config file")
-	flag.StringVar(&httpPostBody, "D", "", "the body of a POST or PUT request; from file use @filename")
+	flag.StringVar(&httpPostBody, "d", "", "the body of a POST or PUT request; from file use @filename")
 	flag.StringVar(&configFile, "f", "", "use config file")
 	flag.StringVar(&outputFile, "o", "", "use output file to report watch result")
 	flag.StringVar(&elasticsearchURL, "e", "", "use elasticsearch to collect watch result")
